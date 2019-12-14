@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,900&display=swap");
+@import "../node_modules/bootstrap/scss/bootstrap-grid.scss";
+@import "./variables";
+
+body,
+html {
+  margin: 0;
+  min-height: 100vh;
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+}
+
+@each $name, $color in $colors {
+  .font-#{$name} {
+    color: $color !important;
+  }
+
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+}
