@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Routes } from "./Routes";
-import { Header } from "../components";
+import { Header, Footer, Breadcrumb } from "../components";
 
 export function MyRouter() {
   const routeComponents = Routes.map(({ path, component }, key) => (
@@ -11,7 +11,9 @@ export function MyRouter() {
   return (
     <Router>
       <Header />
+      <Breadcrumb />
       <Switch>{routeComponents}</Switch>
+      <Footer />
     </Router>
   );
 }

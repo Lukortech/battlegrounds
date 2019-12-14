@@ -1,0 +1,47 @@
+@mixin gradient-text($color1, $color2) {
+  background: -webkit-linear-gradient($color1, $color2);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.font-gradient-main {
+  @include gradient-text(map-get($colors, "purple_light"), map-get($colors, "purple_dark"));
+}
+
+a {
+  .active > & {
+    @include gradient-text(map-get($colors, "purple_light"), map-get($colors, "purple_dark"));
+    &:after {
+      border-bottom: 2px solid map-get($colors, "blue");
+      width: 0%;
+      content: "";
+      display: flex;
+      flex-direction: column;
+      animation: appear 1s linear;
+      animation-fill-mode: forwards;
+    }
+  }
+  :not([class*="active"]) > & {
+    border-bottom: 2px solid transparent;
+  }
+}
+
+.navbar-shadow {
+  box-shadow: map-get($colors, "black") 0px 1px 5px;
+}
+
+.footer-shadow {
+  box-shadow: map-get($colors, "black") 0px 1px 5px;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    border-bottom: 2px solid map-get($colors, "blue");
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+    border-bottom: 2px solid map-get($colors, "blue");
+  }
+}
